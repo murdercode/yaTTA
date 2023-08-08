@@ -10,7 +10,7 @@ class ChatUi extends Component
 {
     public Chat $chat;
 
-    public function mount(?int $chatId = 1)
+    public function mount(?int $chatId = 1): void
     {
         $chat = Chat::find($chatId);
 
@@ -20,7 +20,7 @@ class ChatUi extends Component
     /**
      * Listen for the event fired by the chat list component.
      *
-     * @param  int  $chatId
+     * @param Chat $chat
      */
     #[On('chat-selected')]
     public function setChat(Chat $chat): void
@@ -28,7 +28,7 @@ class ChatUi extends Component
         $this->chat = $chat;
     }
 
-    public function placeholder()
+    public function placeholder(): string
     {
         return <<<'HTML'
         <div>
