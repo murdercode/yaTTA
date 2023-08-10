@@ -14,6 +14,16 @@ class Message extends Model
         'in_out',
     ];
 
+    public function getFromUserAttribute()
+    {
+        return $this->in_out === 1;
+    }
+
+    public function getFromAiAttribute()
+    {
+        return ! $this->from_user;
+    }
+
     public function chat()
     {
         return $this->belongsTo(Chat::class);

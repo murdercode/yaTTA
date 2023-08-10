@@ -5,11 +5,18 @@ export default {
         "./resources/**/*.js",
         "./resources/**/*.vue",
     ],
-  theme: {
-    extend: {},
-  },
-  plugins: [
-      require('@tailwindcss/forms'),
-  ],
+    theme: {
+        fontFamily: {
+            sans: ['Ubuntu', 'sans-serif'],
+        },
+        extend: {
+            colors: {
+                'gray-850': '#162131',
+            }
+        },
+    },
+    plugins: [
+        require('@tailwindcss/forms'),
+    ],
 }
 
