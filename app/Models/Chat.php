@@ -11,9 +11,6 @@ class Chat extends Model
 
     /**
      * Send a message to the chat.
-     *
-     * @param $message
-     * @return Message
      */
     public function sendMessage($message): Message
     {

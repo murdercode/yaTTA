@@ -22,19 +22,18 @@
         </button>
 
         {{-- Autocomplete Dropdown --}}
-        {{--        <div x-show="{open: true}">--}}
-        {{--            <ul>--}}
-        {{--                <li>--}}
-        {{--                    <span class="text-gray-500">/image</span> - Generate an image--}}
-        {{--                </li>--}}
-        {{--            </ul>--}}
-        {{--        </div>--}}
+        <div x-show="{open: true}" class="absolute bg-gray-900 bottom-20">
+            <ul>
+                <li>
+                    <span class="text-gray-500">/image</span> - Generate an image
+                </li>
+            </ul>
+        </div>
 
 
         <label for="input_user" class="hidden">Add your input here</label>
         <input type="text" wire:model="form.input"
                autofocus
-               {{--               x-init="$refs.input.focus()"--}}
                name="input_user" id="input_user"
                class="
                bg-gray-850 caret-rose-400 caret-opacity-50

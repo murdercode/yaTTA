@@ -1,22 +1,34 @@
-<aside class="sticky top-8 w-72 shrink-0 h-screen text-white flex-col min-h-screen hidden sm:flex">
+<aside x-data="{open: true}"
+       class="sticky top-8 shrink-0 h-screen">
 
-    <div class="flex space-x-2 p-2">
-        <div class="grow">
-            <livewire:chat.create-chat-button/>
+    {{--Floating Sidebar Button Show--}}
+    <button
+            x-show="!open"
+            @click="console.log(open); open = !open"
+            type="button" class="p-5 shrink-0 hover:text-white">
+        @svg('fas-arrow-right-to-bracket', 'w-4 h-4 transform')
+    </button>
+
+    {{--Sidebar Content--}}
+    <div x-show="open" class="w-72 h-full flex-col flex">
+        <div class="flex space-x-2 p-2">
+            <div class="grow">
+                <livewire:chat.create-chat-button/>
+            </div>
+
+            <button
+                    @click="console.log(open); open = !open"
+                    type="button" class="shadow-inner-custom p-5 shrink-0 m-auto bg-gray-800 hover:bg-gray-700 rounded">
+                @svg('fas-arrow-right-to-bracket', 'w-4 h-4 rotate-180')
+            </button>
+
         </div>
-        <button
-            type="button" class="shadow-inner-custom p-4 shrink-0 m-auto bg-gray-800 hover:bg-gray-700 rounded">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                 stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                      d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75"/>
-            </svg>
-        </button>
+
+        <livewire:chat.chat-list/>
+
+        <livewire:chat.quick-settings/>
+
     </div>
-
-    <livewire:chat.chat-list/>
-
-    <livewire:chat.quick-settings/>
 
 
 </aside>

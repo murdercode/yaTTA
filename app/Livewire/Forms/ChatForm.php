@@ -9,5 +9,4 @@ class ChatForm extends Form
 {
     #[Rule('required|min:3')]
     public string $input = '';
-
 }

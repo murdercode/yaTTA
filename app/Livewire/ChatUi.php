@@ -3,8 +3,6 @@
 namespace App\Livewire;
 
 use App\Models\Chat;
-use Livewire\Attributes\On;
-use Livewire\Attributes\Reactive;
 use Livewire\Component;
 
 class ChatUi extends Component

@@ -4,7 +4,6 @@ namespace App\Livewire\Chat;
 
 use App\Models\Chat;
 use Illuminate\Support\Collection;
-use Livewire\Attributes\On;
 use Livewire\Component;
 
 class ChatList extends Component
