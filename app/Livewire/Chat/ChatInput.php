@@ -14,7 +14,7 @@ class ChatInput extends Component
 
     public string $autocomplete = '';
 
-    public function updatingForm()
+    public function updatingFormInput()
     {
         $this->autocomplete = strlen($this->form->input) >= 3 ? $this->form->input.rand(1, 1000) : '';
     }
