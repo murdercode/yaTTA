@@ -7,6 +7,9 @@ alt="YaTTA banner"></p>
 [//]: # ([![Fix PHP code style issues]&#40;https://github.com/The-3Labs-Team/nova-github-cards/actions/workflows/lint.yml/badge.svg&#41;]&#40;https://github.com/The-3Labs-Team/nova-github-cards/actions/workflows/lint.yml&#41;)
 
 [//]: # ([![PHPStan]&#40;https://github.com/The-3Labs-Team/nova-github-cards/actions/workflows/analyse.yml/badge.svg&#41;]&#40;https://github.com/The-3Labs-Team/nova-github-cards/actions/workflows/analyse.yml&#41;)
+
+[![Pint](https://github.com/murdercode/yaTTA/actions/workflows/pint.yml/badge.svg)](https://github.com/murdercode/yaTTA/actions/workflows/pint.yml)
+[![PHPStan](https://github.com/murdercode/yaTTA/actions/workflows/phpstan.yml/badge.svg)](https://github.com/murdercode/yaTTA/actions/workflows/phpstan.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/2aea30f3ca076bf01af5/maintainability)](https://codeclimate.com/github/murdercode/yaTTA/maintainability)
 ![License Mit](https://img.shields.io/github/license/murdercode/laravel-shortcode-plus)
 
@@ -30,8 +33,7 @@ by [Laravel Framework](https://laravel.com/) and [TailwindCSS](https://tailwindc
 . Reduced costs
 . Offline e Privacy
 . Open Source
-. Customizable 
-
+. Customizable
 
 Here are some strengths that I think you will share:
 
