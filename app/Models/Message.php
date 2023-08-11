@@ -16,7 +16,7 @@ class Message extends Model
 
     public function getFromUserAttribute()
     {
-        return $this->in_out === 1;
+        return $this->in_out === true;
     }
 
     public function getFromAiAttribute()
