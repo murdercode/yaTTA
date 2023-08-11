@@ -24,12 +24,17 @@ class ChatInput extends Component
             'in_out' => 1,
         ]);
 
+        // Reset the form
+        $this->form->reset();
+
+        $this->dispatch('input-saved')->to('chat.chat-messages');
+
         // Save the answer
-        sleep(1);
-        $this->chat->messages()->create([
-            'body' => 'PHP is a popular general-purpose scripting language that is especially suited to web development.',
-            'in_out' => 0,
-        ]);
+        //        sleep(1);
+        //        $this->chat->messages()->create([
+        //            'body' => 'PHP is a popular general-purpose scripting language that is especially suited to web development.',
+        //            'in_out' => 0,
+        //        ]);
         //        $result = OpenAI::completions()->create([
         //            'model' => 'text-davinci-003',
         //            'prompt' => 'PHP is',
@@ -39,11 +44,8 @@ class ChatInput extends Component
         //            'in_out' => 0,
         //        ]);
 
-        // Reset the form
-        $this->form->reset();
-
         // Reload the page
-        return redirect()->route('chat.show', $this->chat);
+        //        return redirect()->route('chat.show', $this->chat);
 
     }
 

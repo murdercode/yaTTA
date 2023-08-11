@@ -2,7 +2,7 @@
 
     @forelse($messages as $message)
         <div wire:key="{{$message->id}}">
-            <livewire:chat.baloon :message="$message"/>
+            <x-chat.baloon :message="$message"/>
         </div>
     @empty
 

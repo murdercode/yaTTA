@@ -1,8 +1,5 @@
 {{--Create Chat--}}
-<div
-    wire:click="createChat"
-    class="flex font-bold p-4 bg-gradient-to-r from-pink-500 to-rose-500 cursor-pointer">
-    <div class="m-auto">
-        + {{__('New Chat')}}
-    </div>
-</div>
+<button wire:click="createChat"
+        class="shadow-inner-custom from-gray-600 to-gray-700 bg-gradient-to-br hover:from-pink-500 hover:to-rose-500 rounded m-auto p-4 w-full">
+    + {{__('New Chat')}}
+</button>
