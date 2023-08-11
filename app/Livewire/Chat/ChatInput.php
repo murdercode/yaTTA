@@ -12,6 +12,13 @@ class ChatInput extends Component
 
     public Chat $chat;
 
+    public string $autocomplete = '';
+
+    public function updatingForm()
+    {
+        $this->autocomplete = strlen($this->form->input) >= 3 ? $this->form->input.rand(1, 1000) : '';
+    }
+
     /**
      * Run when user submit the input field.
      */
@@ -29,34 +36,7 @@ class ChatInput extends Component
 
         $this->dispatch('input-saved')->to('chat.chat-messages');
 
-        // Save the answer
-        //        sleep(1);
-        //        $this->chat->messages()->create([
-        //            'body' => 'PHP is a popular general-purpose scripting language that is especially suited to web development.',
-        //            'in_out' => 0,
-        //        ]);
-        //        $result = OpenAI::completions()->create([
-        //            'model' => 'text-davinci-003',
-        //            'prompt' => 'PHP is',
-        //        ]);
-        //        $this->chat->messages()->create([
-        //            'body' => $result['choices'][0]['text'],
-        //            'in_out' => 0,
-        //        ]);
-
-        // Reload the page
-        //        return redirect()->route('chat.show', $this->chat);
-
     }
-
-    //    #[Js]
-    //    public function scrollToBottom(): string
-    //    {
-    //        return <<<'JS'
-    //            const chatMessages = document.getElementById('chat-messages')
-    //            chatMessages.scrollIntoView({block: 'end', behavior: 'smooth'})
-    //        JS;
-    //    }
 
     public function render()
     {

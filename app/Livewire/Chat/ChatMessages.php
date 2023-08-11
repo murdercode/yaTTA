@@ -12,6 +12,8 @@ class ChatMessages extends Component
 
     public $messages;
 
+    public bool $isLoading = false;
+
     public function mount($chat)
     {
         $this->chat = $chat;
@@ -38,6 +40,7 @@ class ChatMessages extends Component
     {
         $lastMessage = $this->chat->messages->last();
         $this->addToChatUi($lastMessage);
+        $this->isLoading = true;
 
         $this->dispatch('message-refreshed-by-input')->self();
     }
@@ -46,8 +49,10 @@ class ChatMessages extends Component
     public function getAiResponse()
     {
         sleep(1);
-        $aiResponse = $this->chat->messages()->create(['body' => 'pong', 'in_out' => 0]);
+
+        $aiResponse = $this->chat->messages()->create(['body' => 'Hi Ken!', 'in_out' => 0]);
         $this->addToChatUi($aiResponse);
+        $this->isLoading = false;
 
         $this->dispatch('chat-complete')->to('chat.chat-input');
     }
