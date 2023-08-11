@@ -5,24 +5,45 @@
         <div wire:loading class="mx-auto loading-bar-animation bg-rose-500 h-full"></div>
     </div>
 
-    <form wire:submit="save" class="p-4 flex max-container mx-auto w-full">
+    <form x-data="{ open: false}" autocomplete="off" wire:submit="save"
+          class="relative p-4 flex max-container mx-auto w-full">
 
         @error('form.input')
         <div class="text-red-500 text-xs italic">{{ $message }}</div>
         @enderror
 
+        {{-- Autocomplete --}}
+        <button type="button" x-on:click="open = !open; console.log(open)"
+                class="bg-black/40 hover:bg-black/20 px-2.5 rounded-l">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="1em" viewBox="0 0 576 512">
+                <path
+                    d="M9.4 86.6C-3.1 74.1-3.1 53.9 9.4 41.4s32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L178.7 256 9.4 86.6zM256 416H544c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/>
+            </svg>
+        </button>
+
+        {{-- Autocomplete Dropdown --}}
+        {{--        <div x-show="{open: true}">--}}
+        {{--            <ul>--}}
+        {{--                <li>--}}
+        {{--                    <span class="text-gray-500">/image</span> - Generate an image--}}
+        {{--                </li>--}}
+        {{--            </ul>--}}
+        {{--        </div>--}}
+
+
         <label for="input_user" class="hidden">Add your input here</label>
         <input type="text" wire:model="form.input"
-               autofocus x-init="$refs.input.focus()"
+               autofocus
+               {{--               x-init="$refs.input.focus()"--}}
                name="input_user" id="input_user"
                class="
                bg-gray-850 caret-rose-400 caret-opacity-50
-              
-               block w-full rounded-l-md border-0 py-1.5 ring-0 ring-inset ring-rose-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-rose-400 sm:text-sm sm:leading-6"
+
+               block w-full border-0 py-1.5 ring-0 ring-inset ring-rose-500 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-rose-400 sm:text-sm sm:leading-6"
                placeholder="{{__('Write your input here')}} on chat ID: {{$chat->id}}">
 
         <button wire:loading.attr="disabled" wire:loading.class="cursor-not-allowed" type="submit"
-                class="bg-rose-500 hover:bg-rose-600 text-white px-2.5 rounded-r-md">
+                class="bg-gray-850 text-gray-500 px-2.5 rounded-r-md">
 
             {{--Send Icon--}}
             <svg wire:loading.remove xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"
