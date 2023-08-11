@@ -27,6 +27,12 @@ specifically [NativePHP](https://nativephp.com/) and
 [Livewire](https://livewire.laravel.com/) v3) while the whole thing is supported
 by [Laravel Framework](https://laravel.com/) and [TailwindCSS](https://tailwindcss.com/).
 
+. Reduced costs
+. Offline e Privacy
+. Open Source
+. Customizable 
+
+
 Here are some strengths that I think you will share:
 
 - It is written in the language of the lambo-driving gods. VROOOM
