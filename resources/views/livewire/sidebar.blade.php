@@ -5,7 +5,7 @@
     <button
             x-show="!open"
             @click="console.log(open); open = !open"
-            type="button" class="p-5 shrink-0 hover:text-white">
+            type="button" class="absolute z-40 p-5 shrink-0 hover:text-white">
         @svg('fas-arrow-right-to-bracket', 'w-4 h-4 transform')
     </button>
 
