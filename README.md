@@ -36,10 +36,10 @@ by [Laravel Framework](https://laravel.com/) and [TailwindCSS](https://tailwindc
 
 Here are some pros:
 
-- Reduced costs: compared to the ChatGPT Plus subscription, you will only use what you actually consume (often, in common usage, only a few cents per month).
-- Offline support: should you lose connectivity to the network, you can still access your message history. This is because your chats are saved locally.
-- Customisable: we aim to create customised software for each user. Don't like black? Change it to white.
-- Open Source: be assured that we do not put crap inside the source code. Even if you don't understand a thing about programming, you can always contribute
+- **Reduced costs**: compared to the ChatGPT Plus subscription, you will only use what you actually consume (often, in common usage, only a few cents per month).
+- **Offline support**: should you lose connectivity to the network, you can still access your message history. This is because your chats are saved locally.
+- **Customisable**: we aim to create customised software for each user. Don't like black? Change it to white.
+- **Open Source**: be assured that we do not put crap inside the source code. Even if you don't understand a thing about programming, you can always contribute
 
 Anyway here are the **really strengths** that I think you will share:
 
