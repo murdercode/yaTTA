@@ -18,9 +18,16 @@ class Chat extends Model
     /**
      * Save the input message of the user
      */
-    public function addInput(string $message, bool $in = true): Message
+    public function addInput(string $message, bool $in = true, bool $isChatIgnored = false): Message
     {
-        return $this->messages()->create(['body' => $message, 'in_out' => $in, 'created_at' => now(), 'updated_at' => now(), 'chat_id' => $this->id]);
+        return $this->messages()->create(
+            [
+                'body' => $message, 'in_out' => $in,
+                'created_at' => now(),
+                'updated_at' => now(),
+                'chat_id' => $this->id,
+                'is_chat_ignored' => $isChatIgnored,
+            ]);
     }
 
     /**

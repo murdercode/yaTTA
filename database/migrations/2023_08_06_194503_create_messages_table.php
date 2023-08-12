@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('chat_id')->constrained()->onDelete('cascade');
 
             $table->boolean('in_out')->default(0);
+            $table->boolean('is_chat_ignored')->default(0);
 
         });
     }
