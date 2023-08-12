@@ -3,9 +3,9 @@
 
     {{--Floating Sidebar Button Show--}}
     <button
-            x-show="!open"
-            @click="console.log(open); open = !open"
-            type="button" class="absolute z-40 p-5 shrink-0 hover:text-white">
+        x-show="!open"
+        @click="console.log(open); open = !open"
+        type="button" class="absolute z-40 p-5 shrink-0 hover:text-white">
         @svg('fas-arrow-right-to-bracket', 'w-4 h-4 transform')
     </button>
 
@@ -17,15 +17,14 @@
             </div>
 
             <button
-                    @click="console.log(open); open = !open"
-                    type="button" class="shadow-inner-custom p-5 shrink-0 m-auto bg-gray-800 hover:bg-gray-700 rounded">
+                @click="console.log(open); open = !open"
+                type="button" class="shadow-inner-custom p-5 shrink-0 m-auto bg-gray-800 hover:bg-gray-700 rounded">
                 @svg('fas-arrow-right-to-bracket', 'w-4 h-4 rotate-180')
             </button>
 
         </div>
 
         <livewire:chat.chat-list/>
-
         <livewire:chat.quick-settings/>
 
     </div>
