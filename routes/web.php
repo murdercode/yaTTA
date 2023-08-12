@@ -18,3 +18,5 @@ Route::get('/', function () {
 });
 
 Route::get('/chat/{id}', [App\Http\Controllers\ChatController::class, 'show'])->name('chat.show');
+
+Route::get('/settings', [App\Http\Controllers\SettingsController::class, 'show'])->name('settings');
