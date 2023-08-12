@@ -2,13 +2,7 @@
 <img src="https://github.com/murdercode/yaTTa/raw/HEAD/art/banner.svg" width="100%" 
 alt="YaTTA banner"></p>
 
-[//]: # ([![Latest Version on Packagist]&#40;https://img.shields.io/packagist/v/the-3labs-team/nova-github-cards.svg?style=flat-square&#41;]&#40;https://packagist.org/packages/the-3labs-team/nova-github-cards&#41;)
-
-[//]: # ([![Fix PHP code style issues]&#40;https://github.com/The-3Labs-Team/nova-github-cards/actions/workflows/lint.yml/badge.svg&#41;]&#40;https://github.com/The-3Labs-Team/nova-github-cards/actions/workflows/lint.yml&#41;)
-
-[//]: # ([![PHPStan]&#40;https://github.com/The-3Labs-Team/nova-github-cards/actions/workflows/analyse.yml/badge.svg&#41;]&#40;https://github.com/The-3Labs-Team/nova-github-cards/actions/workflows/analyse.yml&#41;)
-
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.comhttps%2F%2Fgithub.com%2Fmurdercode%2FyaTTA%2Fgjbae1212%2Fhit-counter&count_bg=%23EBB308&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)]
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.comhttps%2F%2Fgithub.com%2Fmurdercode%2FyaTTA%2Fgjbae1212%2Fhit-counter&count_bg=%23EBB308&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)
 [![Pint](https://github.com/murdercode/yaTTA/actions/workflows/pint.yml/badge.svg)](https://github.com/murdercode/yaTTA/actions/workflows/pint.yml)
 [![PHPStan](https://github.com/murdercode/yaTTA/actions/workflows/phpstan.yml/badge.svg)](https://github.com/murdercode/yaTTA/actions/workflows/phpstan.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/2aea30f3ca076bf01af5/maintainability)](https://codeclimate.com/github/murdercode/yaTTA/maintainability)
