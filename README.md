@@ -97,6 +97,12 @@ You also need to migrate the database:
 php artisan migrate:fresh --seed
 ```
 
+For now you must also define an OPENAI key in your .env:
+
+```bash
+OPENAI_API_KEY=sk...
+```
+
 ## Contributing
 
 Thank you for considering contributing to YaTTa!. You can read the contribution guide [here](CONTRIBUTING.md).
