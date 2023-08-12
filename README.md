@@ -36,10 +36,13 @@ by [Laravel Framework](https://laravel.com/) and [TailwindCSS](https://tailwindc
 
 Here are some pros:
 
-- **Reduced costs**: compared to the ChatGPT Plus subscription, you will only use what you actually consume (often, in common usage, only a few cents per month).
-- **Offline support**: should you lose connectivity to the network, you can still access your message history. This is because your chats are saved locally.
+- **Reduced costs**: compared to the ChatGPT Plus subscription, you will only use what you actually consume (often, in
+  common usage, only a few cents per month).
+- **Offline support**: should you lose connectivity to the network, you can still access your message history. This is
+  because your chats are saved locally.
 - **Customisable**: we aim to create customised software for each user. Don't like black? Change it to white.
-- **Open Source**: be assured that we do not put crap inside the source code. Even if you don't understand a thing about programming, you can always contribute
+- **Open Source**: be assured that we do not put crap inside the source code. Even if you don't understand a thing about
+  programming, you can always contribute
 
 Anyway here are the **really strengths** that I think you will share:
 
@@ -61,3 +64,49 @@ that are coming out these days.
 It should be clear that YaTTa! began as a personal, unpaid project, scheduled at indecent hours and days (perhaps after
 12 hours of work). You will forgive me if it does not follow the state of the art but, being open-source, any
 contribution is welcome :)
+
+## Client (Windows/Mac/Linux)
+
+> **Note**
+> The packet is not ready yet, but hey! click on the little star and stay updated. You also save a fairy if you do.
+
+## Web version
+
+> **Note**
+> Packagist will be updated as soon as the project is ready for production. In the meantime, you can clone the
+> repository.
+
+You can clone the repository and run the following commands to get started:
+
+```bash
+composer install
+npm install
+npm run dev
+```
+
+Now you can start the server with:
+
+```bash
+php artisan serve # for a web version
+php artisan native:serve # for a client version
+```
+
+You also need to migrate the database:
+
+```bash
+php artisan migrate:fresh --seed
+```
+
+## Contributing
+
+Thank you for considering contributing to YaTTa!. You can read the contribution guide [here](CONTRIBUTING.md).
+
+## Security Vulnerabilities
+
+If you discover a security vulnerability within YaTTa!, please check [here](SECURITY.md) for more information.
+
+## License
+
+YaTTa! is open-sourced software licensed under the [MIT license](LICENSE).
+
+
