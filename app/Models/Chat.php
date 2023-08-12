@@ -6,24 +6,21 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use OpenAI\Laravel\Facades\OpenAI;
-use OpenAI\Responses\Completions\CreateResponse;
 
 class Chat extends Model
 {
     use HasFactory;
 
+    /* -----------------------------------------------------------------
+     |  Methods
+     | -----------------------------------------------------------------
+     */
     /**
      * Save the input message of the user
      */
     public function addInput(string $message, bool $in = true): Message
     {
-        return $this->messages()->create([
-            'body' => $message,
-            'in_out' => $in,
-            'created_at' => now(),
-            'updated_at' => now(),
-            'chat_id' => $this->id,
-        ]);
+        return $this->messages()->create(['body' => $message, 'in_out' => $in, 'created_at' => now(), 'updated_at' => now(), 'chat_id' => $this->id]);
     }
 
     /**
@@ -46,52 +43,49 @@ class Chat extends Model
         }
 
         if (str_starts_with($input, '/image')) {
-            return $this->getOpenAiImage($input);
+            return $this->getOpenAiImage();
         }
 
-        return $this->getOpenAiChat($input);
+        return $this->getOpenAiChat();
     }
 
     /**
      * Get response chat from OpenAI
      */
-    public function getOpenAiChat(string $input): string
+    public function getOpenAiChat(int $limit = 5): string
     {
-        sleep(1);
-        OpenAI::fake([
-            CreateResponse::fake([
-                'choices' => [
-                    [
-                        'text' => 'Only with PHP!',
-                    ],
-                ],
-            ]),
-        ]);
-        $completion = OpenAI::completions()->create([
-            'model' => 'text-davinci-003',
-            'prompt' => $input,
-        ]);
+        $latestMessages = $this->messages()->latest()->limit($limit)->get()->sortBy('id');
 
-        return $completion->choices[0]->text;
+        /**
+         * Reverse the messages to preserve the order for OpenAI
+         */
+        $latestMessagesArray = [];
+        foreach ($latestMessages as $message) {
+            $latestMessagesArray[] = [
+                'role' => $message->in_out ? 'user' : 'assistant', 'content' => $message->body];
+        }
+
+        $response = OpenAI::chat()->create(['model' => 'gpt-3.5-turbo', 'messages' => $latestMessagesArray]);
+
+        return $response->choices[0]->message->content;
+
     }
 
     /**
      * Get response chat from OpenAI
      */
-    public function getOpenAiImage(string $input): string
+    public function getOpenAiImage(): string
     {
-        $result = OpenAI::images()->create([
-            'prompt' => $input,
-            'n' => 1,
-            'size' => '256x256',
-            'response_format' => 'b64_json',
-        ]);
+        $lastMessage = $this->messages()->latest()->first();
+        $result = OpenAI::images()->create(['prompt' => $lastMessage->body, 'n' => 1, 'size' => '256x256', 'response_format' => 'b64_json']);
 
         return '<img src="data:image/png;base64, '.$result->data[0]->b64_json.'" loading="lazy" />';
-
-        //        dd($result);
-
     }
+
+    /* -----------------------------------------------------------------
+     |  Relationships
+     | -----------------------------------------------------------------
+     */
 
     /**
      * Chat has many messages.
