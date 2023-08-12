@@ -25,6 +25,10 @@ alt="YaTTA banner"></p>
 with
 an LLM (currently OpenAI).
 
+<p align="center">
+<img src="https://github.com/murdercode/yaTTa/raw/HEAD/art/demo.gif" width="100%" 
+alt="YaTTA demo"></p>
+
 It was born as a study project to experiment with some new technologies in the world of PHP (
 specifically [NativePHP](https://nativephp.com/) and
 [Livewire](https://livewire.laravel.com/) v3) while the whole thing is supported

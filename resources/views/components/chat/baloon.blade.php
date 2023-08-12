@@ -33,7 +33,7 @@
                 class="shadow-lg p-4 rounded w-full
             {{$message->from_ai ? 'rounded-tr-none' : 'rounded-tl-none'}}
             ">
-                {{$message->body}}
+                {!! $message->body !!}
 
             </div>
 

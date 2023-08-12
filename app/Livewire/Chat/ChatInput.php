@@ -26,10 +26,7 @@ class ChatInput extends Component
     {
 
         // Save the chat
-        $this->chat->messages()->create([
-            'body' => $this->form->input,
-            'in_out' => 1,
-        ]);
+        $this->chat->addInput($this->form->input);
 
         // Reset the form
         $this->form->reset();

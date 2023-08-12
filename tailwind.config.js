@@ -11,6 +11,7 @@ export default {
         },
         extend: {
             colors: {
+                'gray-750': '#353f55',
                 'gray-850': '#162131',
             }
         },

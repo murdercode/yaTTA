@@ -1,7 +1,7 @@
-<div id="chat-messages" class="flex-col-reverse flex flex-grow h-full overflow-y-scroll gap-y-8 py-8">
-
-    {{-- Shadow --}}
-    <div class="fixed top-0 w-full h-32 bg-gradient-to-b from-gray-700 to-transparent pointer-events-none"></div>
+<div id="chat-messages"
+     class="flex-col-reverse flex flex-grow h-full overflow-y-scroll gap-y-8 py-8
+     bg-gradient-to-bl from-gray-900 to-transparent
+     ">
 
     @if($isLoading)
         <div class="fixed bottom-0 w-full">

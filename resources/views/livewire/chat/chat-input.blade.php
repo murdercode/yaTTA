@@ -46,7 +46,7 @@
             {{--Real Input--}}
             <label for="input_user"></label>
             <input type="text"
-                   wire:model.live="form.input"
+                   wire:model="form.input"
                    x-model="input"
                    autofocus
                    name="input_user" id="input_user"
