@@ -1,5 +1,6 @@
 @tailwind base;
 
+
 /* Scrollbar */
 :root {
     --primary: #202a37;
@@ -28,6 +29,15 @@
 
 @tailwind components;
 @tailwind utilities;
+
+/* Messages */
+.hljs {
+    background: none !important;
+}
+
+pre code.hljs {
+    overflow: scroll;
+}
 
 /* Max width container */
 .max-container {

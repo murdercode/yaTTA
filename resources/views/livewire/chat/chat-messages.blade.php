@@ -20,6 +20,5 @@
         </x-chat.notification>
 
     @endforelse
-
-
+    
 </div>

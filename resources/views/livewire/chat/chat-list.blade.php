@@ -3,7 +3,6 @@
     @foreach($chats as $chat)
         <a
             href="{{route('chat.show', $chat->id)}}"
-            wire:navigate
             class="block p-2 border-l-4 text-gray-300 hover:text-white transition-all
            {{request()->routeIs('chat.show') && request()->route()->id == $chat->id ? 'text-white border-rose-500' : 'border-transparent'}}
            ">

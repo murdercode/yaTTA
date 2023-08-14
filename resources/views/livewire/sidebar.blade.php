@@ -1,5 +1,5 @@
 <aside x-data="{open: true}"
-       class="sticky top-8 shrink-0 h-screen">
+       class="hidden md:block sticky top-8 shrink-0 h-screen">
 
     {{--Floating Sidebar Button Show--}}
     <button
