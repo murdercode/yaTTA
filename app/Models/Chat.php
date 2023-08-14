@@ -63,13 +63,15 @@ class Chat extends Model
     {
         $latestMessages = $this->messages()->latest()->limit($limit)->get()->sortBy('id');
 
+        // Compress messages
+
         /**
          * Reverse the messages to preserve the order for OpenAI
          */
         $latestMessagesArray = [];
         foreach ($latestMessages as $message) {
             $latestMessagesArray[] = [
-                'role' => $message->in_out ? 'user' : 'assistant', 'content' => $message->body];
+                'role' => $message->in_out ? 'user' : 'assistant', 'content' => $message->compressed_body];
         }
 
         $response = OpenAI::chat()->create(['model' => 'gpt-3.5-turbo', 'messages' => $latestMessagesArray]);

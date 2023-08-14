@@ -32,7 +32,9 @@ by [Laravel Framework](https://laravel.com/) and [TailwindCSS](https://tailwindc
 Here are some pros:
 
 - **Reduced costs**: compared to the ChatGPT Plus subscription, you will only use what you actually consume (often, in
-  common usage, only a few cents per month).
+  common usage, only a few cents per month). We also use a _compression algorithm_ to reduce the size of the requests (
+  up
+  to 50% less).
 - **Offline support**: should you lose connectivity to the network, you can still access your message history. This is
   because your chats are saved locally.
 - **Customisable**: we aim to create customised software for each user. Don't like black? Change it to white.
