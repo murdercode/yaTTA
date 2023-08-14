@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('key')->unique();
             $table->string('name');
 
+            $table->boolean('is_active')->default(false);
+
             $table->enum('type', ApiKeyTypeEnum::values())->default('openai');
 
         });
