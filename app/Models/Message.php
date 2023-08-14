@@ -32,6 +32,19 @@ class Message extends Model
     }
 
     /**
+     * Return a compressed message
+     */
+    public function getCompressedBodyAttribute(): string
+    {
+        // Remove spaces
+        $body = str_replace(' ', '', $this->body);
+
+        // Remove punctuation
+        return preg_replace('/\p{P}/', '', $body);
+
+    }
+
+    /**
      * Return the chat that the message belongs to.
      */
     public function chat(): BelongsTo
