@@ -1,4 +1,4 @@
-<div class="mx-auto max-container flex items-start gap-x-4
+<div class="message-container mx-auto max-container flex items-start gap-x-4
 {{$message->from_ai ? 'flex-row-reverse' : 'flex-row'}}
 ">
     {{--Avatar--}}
@@ -22,7 +22,7 @@
 
 
         {{--Baloon--}}
-        <div class="flex rounded-md relative shadow-lg min-w-[100px]
+        <div class="message-baloon flex rounded-md relative shadow-lg min-w-[100px]
     {{$message->from_ai ? 'bg-gray-500/10 rounded-tr-none border-rose-500' : 'bg-black/20 rounded-tl-none flex-row-reverse'}}
     ">
 
@@ -30,10 +30,10 @@
 
             <div
                 style="box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1)"
-                class="shadow-lg p-4 rounded w-full
+                class="shadow-lg p-4 rounded
             {{$message->from_ai ? 'rounded-tr-none' : 'rounded-tl-none'}}
             ">
-                {!! $message->body !!}
+                {!! $message->body_styled !!}
 
             </div>
 

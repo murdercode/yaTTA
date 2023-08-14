@@ -11,6 +11,8 @@
 
 
     @vite('resources/css/app.css')
+    
+
 </head>
 <body class="antialiased selection:bg-rose-500/70">
 
@@ -27,5 +29,8 @@
     </div>
 
 </div>
+
+@vite('resources/js/app.js')
+
 </body>
 </html>

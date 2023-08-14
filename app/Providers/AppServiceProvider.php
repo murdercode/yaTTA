@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\ApiKey;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -21,10 +22,12 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         // TODO: Temp rewrite of config/openai.php
-        config([
-            'openai' => [
-                'api_key' => ApiKey::first()->key ?? null,
-            ],
-        ]);
+        if (Schema::hasTable('api_keys')) {
+            config([
+                'openai' => [
+                    'api_key' => ApiKey::first()->key ?? null,
+                ],
+            ]);
+        }
     }
 }
