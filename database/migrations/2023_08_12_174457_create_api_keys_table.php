@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\ApiKeyTypeEnum;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -18,7 +19,7 @@ return new class extends Migration
             $table->string('key')->unique();
             $table->string('name');
 
-            $table->foreignId('type_id')->constrained('api_key_types');
+            $table->enum('type', ApiKeyTypeEnum::values())->default('openai');
 
         });
     }
