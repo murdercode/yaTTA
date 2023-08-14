@@ -36,6 +36,10 @@ class Message extends Model
      */
     public function getCompressedBodyAttribute(): string
     {
+        if (! config('temp.compressed_messages')) {
+            return $this->body;
+        }
+
         // Remove spaces
         $body = str_replace(' ', '', $this->body);
 
