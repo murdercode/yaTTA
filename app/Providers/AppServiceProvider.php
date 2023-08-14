@@ -22,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         // TODO: Temp rewrite of config/openai.php
-        if (Schema::hasTable('api_keys')) {
+        if (! app()->environment('testing') && Schema::hasTable('api_keys')) {
             config([
                 'openai' => [
                     'api_key' => ApiKey::whereActive()->first()->key ?? null,
