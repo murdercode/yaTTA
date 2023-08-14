@@ -13,7 +13,7 @@
 }
 
 *::-webkit-scrollbar {
-    width: 15px;
+    width: 10px;
 }
 
 *::-webkit-scrollbar-track {
@@ -31,6 +31,11 @@
 @tailwind utilities;
 
 /* Messages */
+
+.message-container .message-baloon pre {
+    text-wrap: balance;
+}
+
 .hljs {
     background: none !important;
 }
