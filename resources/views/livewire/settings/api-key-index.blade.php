@@ -14,15 +14,27 @@
 
         @forelse($apiKeys as $apiKey)
             <tr>
-                <td class="p-2">{{$apiKey->name}}</td>
+                <td class="p-2 inline-flex">
+                    @if($apiKey->isActive())
+                        @svg('fas-check', 'h-4 w-4 text-green-500 mr-2')
+                    @endif
+                    {{$apiKey->name}}
+
+                </td>
                 <td title="{{__('For your security, keys will never be shown')}}">
                     {{substr($apiKey->key, 0, 4)}}......{{substr($apiKey->key, -4)}}</td>
                 <td>{{$apiKey->created_at->diffForHumans()}}</td>
                 {{--                <td>{{rand(0, 99)}}</td>--}}
                 <td>
-                    <button class="btn btn-primary"
-                            onclick="confirm('Are you sure you want to remove this Api key?') || event.stopImmediatePropagation()"
-                            wire:click="delete({{$apiKey->id}})">{{__('Revoke')}}</button>
+
+                    @if(!$apiKey->isActive())
+                        <button
+                            wire:click="makeApiKeyDefault({{$apiKey->id}})">{{__('Make default')}}</button>
+                    @endif
+
+                    <button
+                        onclick="confirm('Are you sure you want to remove this Api key?') || event.stopImmediatePropagation()"
+                        wire:click="delete({{$apiKey->id}})">{{__('Revoke')}}</button>
                 </td>
             </tr>
         @empty

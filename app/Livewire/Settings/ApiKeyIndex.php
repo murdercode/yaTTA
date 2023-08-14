@@ -22,6 +22,13 @@ class ApiKeyIndex extends Component
         $this->refreshApiKeys();
     }
 
+    public function makeApiKeyDefault(int $id)
+    {
+        ApiKey::whereActive()->update(['is_active' => false]);
+        ApiKey::find($id)->update(['is_active' => true]);
+        $this->refreshApiKeys();
+    }
+
     #[On('api-key-added')]
     public function refreshApiKeys()
     {
