@@ -22,7 +22,7 @@
 
 
         {{--Baloon--}}
-        <div class="message-baloon flex rounded-md relative shadow-lg min-w-[100px]
+        <div class="message-baloon flex rounded-md relative shadow-lg 
     {{$message->from_ai ? 'bg-gray-500/10 rounded-tr-none border-rose-500' : 'bg-black/20 rounded-tl-none flex-row-reverse'}}
     ">
 

@@ -49,7 +49,7 @@
 
     {{--Numbers--}}
     <div class="flex justify-between text-xs ">
-        <div>0,00006€</div>
+        <div class="hidden">0,00006€</div>
         <div class="text-gray-400">100 tokens used</div>
     </div>
 
