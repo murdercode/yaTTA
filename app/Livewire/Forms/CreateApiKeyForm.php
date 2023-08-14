@@ -14,5 +14,5 @@ class CreateApiKeyForm extends Form
     public string $key = '';
 
     #[Rule('required')]
-    public int $type_id = 1;
+    public string $type = 'openai';
 }

@@ -2,10 +2,9 @@
 {{$message->from_ai ? 'flex-row-reverse' : 'flex-row'}}
 ">
     {{--Avatar--}}
-    <div class="flex-shrink-0">
+    <div class="flex-shrink-0 hidden md:block">
         <img loading="lazy" class="inline-block h-10 w-10 rounded-full shadow-lg
-        {{$message->from_ai ? 'shadow-rose-600/30' : ''}}
-        "
+        {{$message->from_ai ? 'shadow-rose-600/30' : ''}}"
              src="{{$message->from_ai ? asset('assets/ai-icon.svg') : asset('assets/user-icon.svg')}}"
              alt="">
     </div>

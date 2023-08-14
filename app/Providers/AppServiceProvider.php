@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
         if (Schema::hasTable('api_keys')) {
             config([
                 'openai' => [
-                    'api_key' => ApiKey::first()->key ?? null,
+                    'api_key' => ApiKey::whereActive()->first()->key ?? null,
                 ],
             ]);
         }

@@ -2,9 +2,9 @@
 
 namespace App\Livewire\Settings;
 
+use App\Enums\ApiKeyTypeEnum;
 use App\Livewire\Forms\CreateApiKeyForm;
 use App\Models\ApiKey;
-use App\Models\ApiKeyTypes;
 use Illuminate\Support\Collection;
 use Livewire\Component;
 
@@ -16,7 +16,7 @@ class AddApiKey extends Component
 
     public function mount()
     {
-        $this->apiKeyTypes = ApiKeyTypes::all();
+        $this->apiKeyTypes = collect(ApiKeyTypeEnum::values());
     }
 
     public function save()
