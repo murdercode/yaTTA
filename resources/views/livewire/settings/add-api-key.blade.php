@@ -20,7 +20,7 @@
                        class="block text-sm font-medium leading-6 text-white">{{__('Api Key')}}</label>
                 <div
                     class="flex rounded-md bg-white/5 ring-1 ring-inset ring-white/10 focus-within:ring-2 focus-within:ring-inset focus-within:ring-rose-500">
-                    <input type="text" name="key" id="key" autocomplete="off" wire:model="form.key"
+                    <input type="password" name="key" id="key" autocomplete="off" wire:model="form.key"
                            class="flex-1 border-0 bg-transparent py-1.5 pl-1 text-white focus:ring-0 sm:text-sm sm:leading-6"
                            placeholder="sk-***">
                 </div>
