@@ -3,6 +3,7 @@
      bg-gradient-to-bl from-gray-900 to-transparent
      ">
 
+
     @if($isLoading)
         <div class="fixed bottom-0 w-full">
             <x-atoms.loading-message/>
@@ -21,16 +22,20 @@
 
     @endforelse
 
+    {{--Shadow Top View--}}
+    <div class="fixed z-30 top-0 w-full h-32 bg-gradient-to-b from-gray-900 to-transparent pointer-events-none"></div>
+
+
     <script>
         Livewire.on('chat-complete', ($chatId) => {
             const source = new EventSource("/api/openai/ask/" + $chatId);
             source.addEventListener("update", function (event) {
 
-                const lastMessage = document.querySelector('#chat-messages > div:first-child div.message-content');
+                const lastMessage = document.querySelector('#chat-messages > div:first-child .message-content');
                 if (event.data === "<END_STREAMING_SSE>") {
                     source.close();
                     console.log("SSE closed");
-                    window.location.reload();
+                    // window.location.reload();
                     return;
                 }
                 lastMessage.innerText += event.data;
