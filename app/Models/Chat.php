@@ -11,6 +11,8 @@ class Chat extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['title'];
+
     /* -----------------------------------------------------------------
      |  Methods
      | -----------------------------------------------------------------
@@ -20,7 +22,8 @@ class Chat extends Model
      */
     public function addInput(string $message, bool $in = true, bool $isChatIgnored = false): Message
     {
-        return $this->messages()->create(
+
+        $message = $this->messages()->create(
             [
                 'body' => $message, 'in_out' => $in,
                 'created_at' => now(),
@@ -28,6 +31,14 @@ class Chat extends Model
                 'chat_id' => $this->id,
                 'is_chat_ignored' => $isChatIgnored,
             ]);
+
+        // if is first message, generate title
+        if ($this->messages()->count() == 1) {
+            $this->title = $this->generateTitle();
+            $this->save();
+        }
+
+        return $message;
     }
 
     /**
@@ -87,6 +98,26 @@ class Chat extends Model
         $result = OpenAI::images()->create(['prompt' => $lastMessage->body, 'n' => 1, 'size' => '256x256', 'response_format' => 'b64_json']);
 
         return '<img src="data:image/png;base64, '.$result->data[0]->b64_json.'" loading="lazy" />';
+    }
+
+    /**
+     * Generate title for the chat
+     */
+    public function generateTitle(): string
+    {
+        $firstMessage = $this->messages()->first();
+
+        if (! $firstMessage) {
+            return '';
+        }
+
+        $result = OpenAI::completions()->create([
+            'model' => 'text-davinci-003',
+            'prompt' => 'Create a title from the text, keep the language spoken: '.$firstMessage->body,
+        ]);
+
+        return trim($result->choices[0]->text);
+
     }
 
     /* -----------------------------------------------------------------
