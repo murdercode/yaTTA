@@ -38,7 +38,9 @@ class OpenAIController extends Controller
                 echo "event: update\n";
                 echo 'data: '.$text;
                 echo "\n\n";
-                ob_flush();
+                if (ob_get_level() > 0) {
+                    @ob_flush();
+                }
                 flush();
             }
 
