@@ -63,8 +63,6 @@ class Chat extends Model
     {
         $latestMessages = $this->messages()->latest()->limit($limit)->get()->sortBy('id');
 
-        // Compress messages
-
         /**
          * Reverse the messages to preserve the order for OpenAI
          */

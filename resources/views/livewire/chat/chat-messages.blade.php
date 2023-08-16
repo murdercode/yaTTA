@@ -20,5 +20,22 @@
         </x-chat.notification>
 
     @endforelse
-    
+
+    <script>
+        Livewire.on('chat-complete', ($chatId) => {
+            const source = new EventSource("/api/openai/ask/" + $chatId);
+            source.addEventListener("update", function (event) {
+
+                const lastMessage = document.querySelector('#chat-messages > div:first-child div.message-content');
+                if (event.data === "<END_STREAMING_SSE>") {
+                    source.close();
+                    console.log("SSE closed");
+                    window.location.reload();
+                    return;
+                }
+                lastMessage.innerText += event.data;
+            });
+        })
+    </script>
+
 </div>

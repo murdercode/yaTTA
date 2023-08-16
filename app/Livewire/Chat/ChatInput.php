@@ -14,10 +14,10 @@ class ChatInput extends Component
 
     public string $autocomplete = '';
 
-    public function updatingFormInput()
-    {
-        $this->autocomplete = strlen($this->form->input) >= 3 ? $this->form->input.rand(1, 1000) : '';
-    }
+    //    public function updatingFormInput()
+    //    {
+    //        $this->autocomplete = strlen($this->form->input) >= 3 ? $this->form->input.rand(1, 1000) : '';
+    //    }
 
     /**
      * Run when user submit the input field.
@@ -25,7 +25,7 @@ class ChatInput extends Component
     public function save()
     {
 
-        // Save the chat
+        // Save the chat in database
         $this->chat->addInput($this->form->input);
 
         // Reset the form

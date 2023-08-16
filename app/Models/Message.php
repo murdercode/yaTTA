@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use GrahamCampbell\Markdown\Facades\Markdown;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -30,11 +29,6 @@ class Message extends Model
     public function getFromAiAttribute(): bool
     {
         return ! $this->from_user;
-    }
-
-    public function getBodyStyledAttribute(): string
-    {
-        return Markdown::convert($this->body)->getContent();
     }
 
     /**
