@@ -10,8 +10,10 @@
     <link href="https://fonts.bunny.net/css?family=ubuntu:300,400,500,700" rel="stylesheet"/>
 
 
-    @vite('resources/css/app.css')
-    
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    @livewireStyles
+    @livewireScripts
 
 </head>
 <body class="antialiased selection:bg-rose-500/70">
@@ -30,7 +32,6 @@
 
 </div>
 
-@vite('resources/js/app.js')
-
 </body>
+
 </html>

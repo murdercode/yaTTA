@@ -32,16 +32,20 @@
 
 /* Messages */
 
-.message-container .message-baloon pre {
+.message-container .message-content pre {
     text-wrap: balance;
 }
 
-.hljs {
-    background: none !important;
+.message-container .message-content > div {
+    @apply space-y-2;
 }
 
-pre code.hljs {
-    overflow: scroll;
+.message-container .message-content code {
+    @apply my-2;
+}
+
+.hljs {
+    @apply bg-gray-750;
 }
 
 /* Max width container */

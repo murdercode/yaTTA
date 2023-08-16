@@ -16,24 +16,27 @@
         {{$message->from_ai ? 'flex-row-reverse' : ''}}"
         >
             <span class="font-semibold text-gray-300">{{$message->from_ai ? 'YaTTA!' : 'You'}}</span>
-            <span class="text-gray-500">{{$message->created_at->diffForHumans()}}</span>
+            <span
+                class="text-gray-500">{{isset($message->created_at) ? $message->created_at->diffForHumans() : ''}}</span>
         </div>
 
 
         {{--Baloon--}}
-        <div class="message-baloon flex rounded-md relative shadow-lg 
-    {{$message->from_ai ? 'bg-gray-500/10 rounded-tr-none border-rose-500' : 'bg-black/20 rounded-tl-none flex-row-reverse'}}
-    ">
+        <div class="message-baloon flex rounded-md relative shadow-lg
+        {{$message->from_ai ? 'bg-gray-500/10 rounded-tr-none border-rose-500' : 'bg-black/20 rounded-tl-none flex-row-reverse'}}
+        ">
 
             <x-atoms.light-indicator :is-primary="$message->from_ai"/>
 
             <div
-                style="box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1)"
-                class="shadow-lg p-4 rounded
+                class="message-content grow shadow-inner-custom shadow-lg p-4 rounded space-y-4
             {{$message->from_ai ? 'rounded-tr-none' : 'rounded-tl-none'}}
             ">
-                {!! $message->body_styled !!}
-
+                @if($message->from_ai)
+                    <x-markdown>{!! $message->body !!}</x-markdown>
+                @else
+                    {{$message->body}}
+                @endif
             </div>
 
 

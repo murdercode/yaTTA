@@ -12,8 +12,6 @@ class ChatMessages extends Component
 
     public $messages;
 
-    public $lastMessage;
-
     public bool $isLoading = false;
 
     public function mount($chat)
@@ -50,11 +48,17 @@ class ChatMessages extends Component
     #[On('message-refreshed-by-input')]
     public function getAiResponse()
     {
-        $aiResponse = $this->chat->addOutput($this->lastMessage->body);
-        $this->addToChatUi($aiResponse);
+        // Create temp answer to show the user that the AI is typing
+        $tempMessage = new Message();
+        $tempMessage->body = '';
+        $tempMessage->chat_id = $this->chat->id;
+        $tempMessage->save();
+
+        $this->addToChatUi($tempMessage);
+
         $this->isLoading = false;
 
-        $this->dispatch('chat-complete')->to('chat.chat-input');
+        $this->dispatch('chat-complete', $this->chat->id);
     }
 
     public function render()

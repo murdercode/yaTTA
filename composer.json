@@ -11,7 +11,6 @@
         "php": "^8.1",
         "archtechx/enums": "^0.3.2",
         "blade-ui-kit/blade-icons": "^1.5",
-        "graham-campbell/markdown": "^15.0",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.2",
@@ -19,7 +18,8 @@
         "livewire/livewire": "^3.0@beta",
         "nativephp/electron": "^0.3.3",
         "openai-php/laravel": "^0.6.3",
-        "owenvoke/blade-fontawesome": "^2.3"
+        "owenvoke/blade-fontawesome": "^2.3",
+        "spatie/laravel-markdown": "^2.3"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
