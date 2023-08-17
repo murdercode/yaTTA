@@ -81,23 +81,17 @@ npm install
 npm run dev
 ```
 
+You also need to migrate the database:
+
+```bash
+php artisan migrate
+```
+
 Now you can start the server with:
 
 ```bash
 php artisan serve # for a web version
 php artisan native:serve # for a client version
-```
-
-You also need to migrate the database:
-
-```bash
-php artisan migrate:fresh --seed
-```
-
-For now you must also define an OPENAI key in your .env:
-
-```bash
-OPENAI_API_KEY=sk...
 ```
 
 ## Contributing
