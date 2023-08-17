@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c018911fcc71ba6258f5ec8ed7c19ed7",
+    "content-hash": "41d331767d58b7b44e76508a0967b1ee",
     "packages": [
         {
             "name": "archtechx/enums",
@@ -2107,20 +2107,21 @@
         },
         {
             "name": "nativephp/electron",
-            "version": "0.3.3",
+            "version": "0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/NativePHP/electron.git",
-                "reference": "47949012a2ee82fa8c67bf0a81519dd16a4651b0"
+                "reference": "d9bc645328148dfa334968ede4388b59d50abd56"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NativePHP/electron/zipball/47949012a2ee82fa8c67bf0a81519dd16a4651b0",
-                "reference": "47949012a2ee82fa8c67bf0a81519dd16a4651b0",
+                "url": "https://api.github.com/repos/NativePHP/electron/zipball/d9bc645328148dfa334968ede4388b59d50abd56",
+                "reference": "d9bc645328148dfa334968ede4388b59d50abd56",
                 "shasum": ""
             },
             "require": {
                 "illuminate/contracts": "^10.0",
+                "laravel/prompts": "^0.1.1",
                 "nativephp/laravel": "*",
                 "nativephp/php-bin": "*",
                 "php": "^8.1",
@@ -2174,10 +2175,9 @@
                 "nativephp"
             ],
             "support": {
-                "issues": "https://github.com/NativePHP/electron/issues",
-                "source": "https://github.com/NativePHP/electron/tree/0.3.3"
+                "source": "https://github.com/NativePHP/electron/tree/0.4.0"
             },
-            "time": "2023-07-31T11:33:20+00:00"
+            "time": "2023-08-09T20:58:06+00:00"
         },
         {
             "name": "nativephp/laravel",
@@ -3926,16 +3926,16 @@
         },
         {
             "name": "spatie/laravel-markdown",
-            "version": "2.3.1",
+            "version": "2.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-markdown.git",
-                "reference": "1cdde7aafd638c6df2ee12868635399968035b08"
+                "reference": "38d11c666ccdbf111535677c1d927b349b64aca4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-markdown/zipball/1cdde7aafd638c6df2ee12868635399968035b08",
-                "reference": "1cdde7aafd638c6df2ee12868635399968035b08",
+                "url": "https://api.github.com/repos/spatie/laravel-markdown/zipball/38d11c666ccdbf111535677c1d927b349b64aca4",
+                "reference": "38d11c666ccdbf111535677c1d927b349b64aca4",
                 "shasum": ""
             },
             "require": {
@@ -3990,7 +3990,7 @@
                 "spatie"
             ],
             "support": {
-                "source": "https://github.com/spatie/laravel-markdown/tree/2.3.1"
+                "source": "https://github.com/spatie/laravel-markdown/tree/2.4.0"
             },
             "funding": [
                 {
@@ -3998,7 +3998,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-05-05T08:09:13+00:00"
+            "time": "2023-08-17T06:59:15+00:00"
         },
         {
             "name": "spatie/laravel-package-tools",

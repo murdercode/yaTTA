@@ -2,9 +2,7 @@
 
 namespace App\Providers;
 
-use Native\Laravel\Facades\ContextMenu;
-use Native\Laravel\Facades\Dock;
-use Native\Laravel\Facades\GlobalShortcut;
+use Illuminate\Support\Facades\Schema;
 use Native\Laravel\Facades\MenuBar;
 use Native\Laravel\Facades\Window;
 use Native\Laravel\Menu\Menu;
@@ -17,6 +15,14 @@ class NativeAppServiceProvider
      */
     public function boot(): void
     {
+        if (Schema::hasTable('api_keys')) {
+            config([
+                'openai' => [
+                    'api_key' => \App\Models\ApiKey::whereActive()->first()->key ?? null,
+                ],
+            ]);
+        }
+
         Menu::new()
             ->appMenu()
             ->submenu('About', Menu::new()
@@ -37,25 +43,25 @@ class NativeAppServiceProvider
         MenuBar::create();
 
         /**
-            Dock::menu(
-                Menu::new()
-                    ->event(DockItemClicked::class, 'Settings')
-                    ->submenu('Help',
-                        Menu::new()
-                            ->event(DockItemClicked::class, 'About')
-                            ->event(DockItemClicked::class, 'Learn More…')
-                    )
-            );
-
-            ContextMenu::register(
-                Menu::new()
-                    ->event(ContextMenuClicked::class, 'Do something')
-            );
-
-            GlobalShortcut::new()
-                ->key('CmdOrCtrl+Shift+I')
-                ->event(ShortcutPressed::class)
-                ->register();
-        */
+         * Dock::menu(
+         * Menu::new()
+         * ->event(DockItemClicked::class, 'Settings')
+         * ->submenu('Help',
+         * Menu::new()
+         * ->event(DockItemClicked::class, 'About')
+         * ->event(DockItemClicked::class, 'Learn More…')
+         * )
+         * );
+         *
+         * ContextMenu::register(
+         * Menu::new()
+         * ->event(ContextMenuClicked::class, 'Do something')
+         * );
+         *
+         * GlobalShortcut::new()
+         * ->key('CmdOrCtrl+Shift+I')
+         * ->event(ShortcutPressed::class)
+         * ->register();
+         */
     }
 }
