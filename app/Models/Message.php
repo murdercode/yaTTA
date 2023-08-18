@@ -36,12 +36,20 @@ class Message extends Model
      */
     public function getCompressedBodyAttribute(): string
     {
+        return $this->compressMessage($this->body);
+    }
+
+    /**
+     * Compress a message
+     */
+    public function compressMessage($message): array|string|null
+    {
         if (! config('temp.compressed_messages')) {
-            return $this->body;
+            return $message;
         }
 
         // Remove spaces
-        $body = str_replace(' ', '', $this->body);
+        $body = str_replace(' ', '', $message);
 
         // Remove punctuation
         return preg_replace('/\p{P}/', '', $body);
