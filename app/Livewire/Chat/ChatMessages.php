@@ -2,17 +2,17 @@
 
 namespace App\Livewire\Chat;
 
+use App\Models\Chat;
 use App\Models\Message;
+use Illuminate\Database\Eloquent\Collection;
 use Livewire\Attributes\On;
 use Livewire\Component;
 
 class ChatMessages extends Component
 {
-    public $chat;
-
-    public $messages;
-
-    public bool $isLoading = false;
+    public Chat $chat;
+    public Collection $messages;
+    public ?Message $lastMessage = null;
 
     public function mount($chat)
     {
@@ -40,7 +40,6 @@ class ChatMessages extends Component
     {
         $this->lastMessage = $this->chat->messages->last();
         $this->addToChatUi($this->lastMessage);
-        $this->isLoading = true;
 
         $this->dispatch('message-refreshed-by-input')->self();
     }
@@ -55,8 +54,6 @@ class ChatMessages extends Component
         $tempMessage->save();
 
         $this->addToChatUi($tempMessage);
-
-        $this->isLoading = false;
 
         $this->dispatch('chat-complete', $this->chat->id);
     }

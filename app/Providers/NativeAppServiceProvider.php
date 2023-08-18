@@ -2,12 +2,10 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Schema;
-use Native\Laravel\Facades\MenuBar;
+use Native\Laravel\Contracts\ProvidesPhpIni;
 use Native\Laravel\Facades\Window;
-use Native\Laravel\Menu\Menu;
 
-class NativeAppServiceProvider
+class NativeAppServiceProvider implements ProvidesPhpIni
 {
     /**
      * Executed once the native application has been booted.
@@ -15,53 +13,15 @@ class NativeAppServiceProvider
      */
     public function boot(): void
     {
-        if (Schema::hasTable('api_keys')) {
-            config([
-                'openai' => [
-                    'api_key' => \App\Models\ApiKey::whereActive()->first()->key ?? null,
-                ],
-            ]);
-        }
+        Window::open();
+    }
 
-        Menu::new()
-            ->appMenu()
-            ->submenu('About', Menu::new()
-                ->link('https://beyondco.de', 'Beyond Code')
-                ->link('https://simonhamp.me', 'Simon Hamp')
-            )
-            ->submenu('View', Menu::new()
-                ->toggleFullscreen()
-                ->separator()
-                ->link('https://laravel.com', 'Learn More', 'CmdOrCtrl+L')
-            )
-            ->register();
-
-        Window::open()
-            ->width(800)
-            ->height(800);
-
-        MenuBar::create();
-
-        /**
-         * Dock::menu(
-         * Menu::new()
-         * ->event(DockItemClicked::class, 'Settings')
-         * ->submenu('Help',
-         * Menu::new()
-         * ->event(DockItemClicked::class, 'About')
-         * ->event(DockItemClicked::class, 'Learn More…')
-         * )
-         * );
-         *
-         * ContextMenu::register(
-         * Menu::new()
-         * ->event(ContextMenuClicked::class, 'Do something')
-         * );
-         *
-         * GlobalShortcut::new()
-         * ->key('CmdOrCtrl+Shift+I')
-         * ->event(ShortcutPressed::class)
-         * ->register();
-         */
+    /**
+     * Return an array of php.ini directives to be set.
+     */
+    public function phpIni(): array
+    {
+        return [
+        ];
     }
 }
