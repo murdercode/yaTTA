@@ -6,6 +6,7 @@ alt="YaTTA banner"></p>
 [![Pint](https://github.com/murdercode/yaTTA/actions/workflows/pint.yml/badge.svg)](https://github.com/murdercode/yaTTA/actions/workflows/pint.yml)
 [![PHPStan](https://github.com/murdercode/yaTTA/actions/workflows/phpstan.yml/badge.svg)](https://github.com/murdercode/yaTTA/actions/workflows/phpstan.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/2aea30f3ca076bf01af5/maintainability)](https://codeclimate.com/github/murdercode/yaTTA/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/2aea30f3ca076bf01af5/test_coverage)](https://codeclimate.com/github/murdercode/yaTTA/test_coverage)
 ![License Mit](https://img.shields.io/github/license/murdercode/laravel-shortcode-plus)
 
 [//]: # ([![Total Downloads]&#40;https://img.shields.io/packagist/dt/the-3labs-team/nova-github-cards.svg?style=flat-square&#41;]&#40;https://packagist.org/packages/the-3labs-team/nova-github-cards&#41;)
