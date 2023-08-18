@@ -17,11 +17,16 @@ test('can get from ai attribute', function () {
     expect($message->from_ai)->toBeTrue();
 });
 
-test('can compress message', function () {
+test('can get compressed message', function () {
     $message = new Message([
         'body' => 'Hello World',
     ]);
     expect($message->compressed_body)->toBe('HelloWorld');
+});
+
+test('can compress message', function () {
+    $message = new Message();
+    expect($message->compressMessage('Hello World'))->toBe('HelloWorld');
 });
 
 test('can get chat relationship', function () {

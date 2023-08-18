@@ -27,8 +27,10 @@
                           d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
                 </svg>
             </a>
-            {{--Clear--}}
+            {{--Delete All Chats--}}
             <a href="javascript:void(0)"
+               id="delete-all-chats"
+               title="{{__('Delete All Chats')}}"
                wire:click=" deleteAllChats()"
                onclick="confirm('{{__('Do you REALLY want to delete all chats?')}}') || event.stopImmediatePropagation()"
                class="text-gray-400 hover:text-white">
