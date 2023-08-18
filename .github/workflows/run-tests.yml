@@ -60,6 +60,11 @@ jobs:
             cp .env.example .env
             php artisan key:generate
 
+      - name: Run NPM build
+        run: |
+          npm install
+          npm run build
+
       - name: Run Tests
         run: |
           vendor/bin/pest --coverage-clover clover.xml
