@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -20,12 +19,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        if (!app()->environment('testing') && Schema::hasTable('api_keys')) {
-            config([
-                'openai' => [
-                    'api_key' => \App\Models\ApiKey::whereActive()->first()->key ?? null,
-                ],
-            ]);
-        }
+        
     }
 }

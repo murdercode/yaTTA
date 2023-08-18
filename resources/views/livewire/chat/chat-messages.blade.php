@@ -3,13 +3,6 @@
      bg-gradient-to-bl from-gray-900 to-transparent
      ">
 
-
-    @if($isLoading)
-        <div class="fixed bottom-0 w-full">
-            <x-atoms.loading-message/>
-        </div>
-    @endif
-
     @forelse($messages as $message)
         <div wire:key="{{$message->id}}">
             <x-chat.baloon :message="$message"/>
