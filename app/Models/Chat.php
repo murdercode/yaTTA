@@ -25,7 +25,8 @@ class Chat extends Model
 
         $message = $this->messages()->create(
             [
-                'body' => $message, 'in_out' => $in,
+                'body' => $message,
+                'in_out' => $in,
                 'created_at' => now(),
                 'updated_at' => now(),
                 'chat_id' => $this->id,
