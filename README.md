@@ -1,3 +1,5 @@
+> Just use it as a PoC. Fork it ;)
+
 <p align="center">
 <img src="https://github.com/murdercode/yaTTa/raw/HEAD/art/banner.svg" width="100%" 
 alt="YaTTA banner"></p>
